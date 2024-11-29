@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['date'])) {
 
     foreach ($timeSlots as $time) {
         // Query to count existing appointments for the date and time
-        $stmt = $con->prepare("SELECT COUNT(*) as count FROM booking WHERE date = ? AND time = ?");
+        $stmt = $con->prepare("SELECT COUNT(*) as count FROM bookappointment WHERE date = ? AND time = ?");
         $stmt->bind_param("ss", $date, $time);
         $stmt->execute();
         $result = $stmt->get_result();

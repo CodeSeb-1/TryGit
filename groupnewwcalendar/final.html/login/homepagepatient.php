@@ -22,7 +22,7 @@ if (isset($_GET['month']) && isset($_GET['year'])) {
 }
 
 // Fetch all dates and their checker counts for the selected month and year
-$sql = "SELECT date, COUNT(*) as checker_count FROM booking WHERE MONTH(date) = ? AND YEAR(date) = ? GROUP BY date";
+$sql = "SELECT date, COUNT(*) as checker_count FROM bookappointment WHERE MONTH(date) = ? AND YEAR(date) = ? GROUP BY date";
 $stmt = $con->prepare($sql);
 $stmt->bind_param("ii", $selectedMonth, $selectedYear);
 $stmt->execute();

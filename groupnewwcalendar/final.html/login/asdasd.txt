@@ -14,21 +14,20 @@ $mail = new PHPMailer(true);
 $error_message = "";
 $success_message = "";
 
-$date = $_POST['date'];
-$time = $_POST['time'];
 // Unified form handler
 if (isset($_POST['appointNow'])) {
     // Common form inputs
     $fullname = $_SESSION['fullname'];
     $email = $_SESSION['email'];
-   
+    $date = $_POST['date'];
+    $time = $_POST['time'];
 
     // Specific inputs for `appointNow`
     $age = isset($_POST['age']) ? $_POST['age'] : null;
     $treatment = isset($_POST['treatment']) ? $_POST['treatment'] : null;
     $duration = isset($_POST['duration']) ? $_POST['duration'] : "1 hour and 30 minutes";
     $dentistname = isset($_POST['dentistname']) ? $_POST['dentistname'] : null;
-    $status = "Pending"; // Default status for new appointments
+    $status = "Approve"; // Default status for new appointments
     $checker = "check";  // Default value for checker
 
     // Validate mandatory fields
@@ -88,7 +87,6 @@ if (isset($_POST['appointNow'])) {
         } else {
             $error_message = "Query preparation failed: " . $con->error;
         }
-        echo"<script> alert('Appointment successfully scheduled! Confirmation email sent.'); window.location.href='homepagepatient.php';</script>";
     }
 }
 $con->close();
@@ -128,13 +126,13 @@ $con->close();
       <!-- Form that posts data -->
       <form method="POST" action="">
         <?php
+              $date = $_POST['date'];
+              $time = $_POST['time'];
 
               $formattedDate = date('F j, Y', strtotime($date));
               echo "<strong>Date:</strong> $formattedDate
                     <strong>Time:</strong> $time"; // Output: October 10, 2024
             ?>
-            <input type="hidden" name="date" value="<?php echo $date; ?>">
-            <input type="hidden" name="time" value="<?php echo $time; ?>">
         <br><br>
         <div class="form-grid">
           <div class="form-group">
