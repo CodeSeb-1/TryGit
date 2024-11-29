@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Settings</title>
+
+  <link rel="stylesheet" href="profilestyle.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+</head>
+
+<body>
+  <button class="hamburger-menu" onclick="toggleSidebar()">
+    <i class="ri-menu-line"></i>
+  </button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="homepagepatient.html" div class="menu-item">
+      <i class="ri-home-heart-fill"></i>
+      <span>Home</span>
+    </a>
+    <a href="appointmenthispatient.html" div class="menu-item">
+      <i class="ri-history-line"></i>
+      <span>Appointment History</span>
+    </a>
+    <a href="notifpatient.html" div class="menu-item">
+      <i class="ri-notification-fill"></i>
+      <span>Notification</span>
+    </a>
+    <a href="accoutnsettpatient.html" div class="menu-item">
+      <i class="ri-account-circle-fill"></i>
+      <span>Account Settings</span>
+    </a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-container-accountsett">
+    <div class="settings-box">
+      <div class="header">
+        <i class="ri-account-circle-fill"></i>
+        <h1>Account Settings</h1>
+      </div>
+
+      <div class="form-sec1">
+        <form>
+          <input type="email" id="current-Email" name="current-Email" placeholder="Current Email" required>
+
+          <input type="email" id="change-Email" name="Change-Email" placeholder="Change Email" required>
+
+          <input type="password" id="change-password" name="change password " placeholder="Change Password" required>
+
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+
+          <input type="text" id="code" name="code" placeholder="CODE" required>
+        </form>
+      </div>
+      <a href="">
+        <button class="send-btn">SEND</button>
+      </a>
+    </div>
+  </div>
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("visible");
+    }
+  </script>
+</body>
+
+</html>

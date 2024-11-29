@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <link rel="stylesheet" href="profilestyle.css">
+    <link rel="stylesheet" href="calendar.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="body">
+        <div class="header">
+            <div class="profile-picture-container">
+                <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture">
+                <div class="profile-name">FULL NAME</div>
+                <a href="editprofpatient.php">
+                    <button class="edit-profile-btn">EDIT</button>
+                </a>
+            </div>
+            <img src="logo.png" alt="Dental Clinic Logo" class="clinic-logo">
+        </div>
+
+        <div class="graph-container">
+            <div class="graph-box">
+                <img src="https://via.placeholder.com/230" alt="Graph" class="graph-image">
+                <p class="graph-description">
+                    Parang dito nakalagay yung graph kung saan makikita yung percentage nung availability pero hindi pa
+                    ito yung kapag pinindot yung sa calendar or pwede na rin din.
+                </p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="navigation-buttons">
+                <a href="appointmenthispatient.php"><button class="nav-btn">HISTORY</button></a>
+                <a href="notifpatient.php"><button class="nav-btn">NOTIFICATION</button></a>
+                <a href="accoutnsettpatient.html"><button class="nav-btn">SETTINGS</button></a>
+            </div>
+        </div>
+
+        <div class="appointment-container">
+            <div class="appointment-schedule">
+                <div class="schedule-title-outside">APPOINTMENT SCHEDULE</div>
+
+                <!-- Calendar Navigation Buttons -->
+                <div class="calendar-navigation">
+                    <button class="prev-month" onclick="changeMonth(-1)">&#8249;</button>
+                    <button class="next-month" onclick="changeMonth(1)">&#8250;</button>
+                </div>
+
+                <!-- Calendar Container -->
+                <div id="calendar" class="calendar-container"></div>
+            </div>
+        </div>
+
+        <div class="lgtbtn">
+            <a href="#">
+                <button class="logout-btn">LOG OUT</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Optional: Include a script for a basic clickable calendar -->
+    <script>
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+
+        // Function to generate the calendar
+        function generateCalendar() {
+            // Set the current month and year
+            const monthYear = document.getElementById('calendar');
+            monthYear.innerHTML = `<h2>${monthNames[currentMonth]} ${currentYear}</h2>`;
+
+            // Create the calendar table
+            let calendarHtml = '<table class="calendar-table"><thead><tr>';
+            for (let i = 0; i < daysOfWeek.length; i++) {
+                calendarHtml += `<th>${daysOfWeek[i]}</th>`;
+            }
+            calendarHtml += '</tr></thead><tbody>';
+
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            let day = 1;
+
+            // Add empty cells for the first week
+            for (let i = 0; i < 6; i++) {
+                let row = '<tr>';
+                for (let j = 0; j < 7; j++) {
+                    if (i === 0 && j < firstDay) {
+                        row += '<td></td>';
+                    } else if (day <= daysInMonth) {
+                        row += `<td class="calendar-day" data-day="${day}" onclick="selectDate(event)">${day}</td>`;
+                        day++;
+                    } else {
+                        row += '<td></td>';
+                    }
+                }
+                row += '</tr>';
+                calendarHtml += row;
+                if (day > daysInMonth) break;
+            }
+            calendarHtml += '</tbody></table>';
+
+            monthYear.innerHTML += calendarHtml;
+        }
+
+        // Function to handle date selection
+        function selectDate(event) {
+            const selectedDate = event.target;
+            const allDays = document.querySelectorAll('.calendar-day');
+            allDays.forEach(day => day.classList.remove('selected')); // Remove selected class from all days
+            selectedDate.classList.add('selected'); // Add selected class to clicked day
+        }
+
+        // Function to change the month (either forward or backward)
+        function changeMonth(offset) {
+            currentMonth += offset;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            } else if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            generateCalendar(); // Regenerate the calendar with the new month and year
+        }
+
+        // Generate calendar when the page loads
+        window.onload = generateCalendar;
+    </script>
+</body>
+
+</html>

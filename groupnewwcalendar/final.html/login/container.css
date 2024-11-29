@@ -1,0 +1,42 @@
+.main-container-appointhiss {
+    width: 100%;
+    max-width: 600px; /* Adjust to your desired width */
+    margin: 0 auto;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notification-box-appoint {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .appointment-details {
+    padding: 15px;
+    background: #e8ffe8;
+    border: 1px solid #d4ffd4;
+    border-radius: 10px;
+  }
+  
+  .appointment-item {
+    margin-bottom: 10px;
+  }
+  
+  .header3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .header3 h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+  }
+  

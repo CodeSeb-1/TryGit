@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Reset Success</title>
+    <link rel="stylesheet" href="pop-up.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="resetModal" class="modal">
+  <div class="modal-content">
+    
+    <img src="padlock.png" alt="Padlock Icon" class="padlock-image">
+
+    <h1>Success!</h1>
+    <h3>Your password has been updated.</h3>
+    <p>Go back to the login page to sign in.</p>
+    <button class="btn" onclick="window.location.href='sign-in.php'">Sign In</button>
+  </div>
+</div>
+
+<script>
+    document.getElementById("resetModal").style.display = "block";
+</script>
+
+</body>
+</html>

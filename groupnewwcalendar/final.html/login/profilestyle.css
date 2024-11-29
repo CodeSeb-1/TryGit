@@ -1,0 +1,616 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(90deg, #D8BADE 22%, #987FA6 49%, #614D76 90%);
+    justify-content: center;
+    margin-left: 50px;
+    align-items: center;
+    color: white;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clinic-logo {
+    width: 200px;
+    height: auto;
+}
+
+.profile-picture-container {
+    position: absolute;
+    top: 20%;
+    left: 7.5%;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin-bottom: 15px;
+}
+
+.profile-name {
+    font-family: 'Inter';
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.edit-profile-btn {
+    margin-top: 15px;
+    padding: 8px 20px;
+    background-color: #EABE4A;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-profile-btn:hover {
+    background-color: #C8973B;
+}
+
+.main-content {
+    width: 30%;
+    margin-top: 100px;
+    margin-left: -5%;  /* Remove negative margin */
+    position: relative;  /* Ensure it's properly positioned */
+}
+
+.navigation-buttons {
+    position: relative;
+    gap: 20px;  /* Add units to the gap */
+    display: flex; /* Use flexbox to align buttons horizontally */
+    flex-direction: column; /* Stack buttons vertically (if needed) */
+    align-items:center ;
+}
+
+.nav-btn {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 50px;
+    background-color: #987FA6;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #2a0631;
+}
+
+.graph-container {
+        display: flex; /* Flexbox layout for horizontal alignment */
+        align-items: center; /* Center items vertically */
+        text-align: left; /* Ensure text aligns to the left */
+        /* Adjust margin as needed */
+        gap: 20px; /* Space between the image and the description */
+}
+
+.graph-box {
+    margin-top: 0;
+    margin-left: 30%;
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* Ensures the content is horizontal */
+}
+
+.graph-image {
+    width: 230px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.graph-description {
+    padding-left: 20px;
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    max-width: 450px;
+    color: #ffffff;
+    line-height: 1.5; /* Improves readability */
+}
+
+.appointment-container {
+    display: flex;
+    justify-content: center;  /* Center the appointment container */
+    align-items: center;
+    height: 50vh;
+    width: 100%;  /* Make sure the container takes up the full width */
+    margin-top: -5%;
+    padding-top: 50px;  /* Adds spacing from top */
+}
+
+.appointment-schedule {
+    margin-top: -20%;
+    margin-left: 20%;
+    background-color: #cfcdcd8a;
+    border-radius: 20px;
+    padding: 30px; /* Adjust padding as needed */
+    width: 700px; /* Width control */
+    height: 300px; /* Height control */
+    position: relative; /* Position relative to the parent container */
+    /* Ensure the position is properly centered */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds some shadow for better visual separation */
+}
+
+
+.schedule-title-outside {
+    position: absolute;
+    top: -30px;
+    left: 25;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 40px;
+    font-weight: bolder;
+    z-index: 10;
+}
+
+/* Footer Section */
+.lgtbtn {
+    margin-top: -5%;  /* Adjust margin for proper spacing from the top */
+    width: 99%;     /* Ensure the container takes the full width of its parent */
+    display: flex;   /* Use flexbox for alignment */
+    justify-content: flex-end; /* Align the button to the right */ 
+}
+
+.logout-btn {
+    padding: 12px 25px;
+    background-color: #7E5E96;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #2a0631;
+}
+
+
+/* edit profile page */
+
+.main-container-editprof {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;  /* Fixed width  */
+  padding: 20px;
+}
+
+.hamburger-menu {
+    position: fixed;
+    top: 20px;
+    left: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 101; /* Make sure it stays above the sidebar */
+  }
+  
+  .hamburger-menu i {
+    font-size: 24px;
+    color: #614D76;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    background-color: #fffefe42;
+    width: 220px;
+    height: 100vh; /* Full height */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 100px;
+    position: fixed;
+    top: 0;
+    left: -220px; /* Hidden initially */
+    z-index: 0;
+    overflow: hidden;
+    transition: left 0.3s ease; /* Smooth slide-in effect */
+  }
+  
+  .sidebar.visible {
+    left: 0; /* Slide into view */
+  }
+  
+  /* Sidebar Menu Items */
+  .menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 20px;
+    width: 100%;
+    color: #222122;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-item i {
+    font-size: 24px;
+    color: #614D76;
+    margin-right: 10px;
+  }
+  
+  .menu-item span {
+    white-space: nowrap;
+  }
+  
+  .menu-item:hover {
+    background-color: none;
+    transform: scale(1.05); /* Slightly enlarge */
+  }
+
+  
+
+  /* Main Container */
+  .main-container-editprof {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #cfcdcd4b;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 800px;
+    margin-top: 20px; /* Added some margin from the top */
+  }
+
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+  }
+
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .profile-picture i {
+    width: 15px;
+    height: 10px;
+  }
+
+  .upload-button {
+    background-color: #A09DA3;
+    color: #111111;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+
+  .form-section {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-right: 50px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    margin-bottom: 5px;
+    font-weight:16px;
+    color: #111111;
+    font-family: 'Open Sans';
+  }
+
+  input {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f5f6f4b0;
+  }
+
+  .save-button {
+    background-color: #6e4a8a;;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 30px;
+    align-self: flex-end;
+  }
+a{
+  text-decoration: none;
+}
+
+/* Account settings */
+
+.main-container-accountsett {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    /* Fixed width  */
+    padding: 20px;
+  }
+
+  /* Main Container */
+  .main-container-accountsett {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Settings Box */
+  .settings-box {
+    background-color: #cfcdcd4b;
+    border-radius: 20px;
+    padding: 30px;
+    width: 500px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  .header {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Align items vertically in the center */
+}
+
+.header i {
+    font-size: 70px;
+    color: rgb(24, 24, 24);
+    margin-left: 20px; /* Reset any margins */
+}
+
+h1 {
+    font-size: 25px;
+    color: rgb(24, 24, 24);
+    padding: 0; /* Remove any default padding */
+    margin-right: 130px; /* Adjust spacing between the icon and the text */
+}
+
+
+  /* Form Buttons */
+  .form-sec1 {
+    padding: 15px 20px;
+    margin: 5px -20px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+
+  /* Send Button */
+  .send-btn {
+    background-color: #6e4a8a;
+    color: #1b1b1b;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: -5px;
+    margin-left: -15px;
+    transition: background-color 0.3s ease;
+  }
+
+  .send-btn:hover {
+    background-color: #e7be58;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+/*notification */
+
+  /* Main Container */
+  .main-container-notificationhis {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    /* Fixed width  */
+    padding: 20px;
+  }
+
+  /* Notification Box */
+  .notification-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #cfcdcd4b;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 800px;
+    margin-top: 20px; /* Added some margin from the top */
+    flex-direction: column;
+  }
+
+  .header2 {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Vertically align icon and text */
+    justify-content: flex-start; /* Keep them aligned to the left */
+    gap: 10px; 
+  }
+
+  .header2 i {
+    font-size: 50px;
+    color: rgb(24, 24, 24);
+    margin-left: 0;
+  }
+
+  h2 {
+    font-size: 30px;
+    color: rgb(24, 24, 24);
+    padding: 0; /* Remove any default padding */
+    margin-right: 350px; 
+  }
+
+
+  /* Appoint history */
+  .notifications {
+    text-align: left;
+  }
+
+  .notification {
+    height: 100px;
+    width: 650px;
+    background-color: #dff7df;
+    border-left: 5px solid #28a745;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color: #3c763d;
+  }
+
+  .notification p {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+/* Appointment History */
+
+ .main-container-appointhiss {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    /* Fixed width  */
+    padding: 20px;
+  }
+
+  /* Notification Box */
+  .notification-box-appoint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #cfcdcd4b;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 800px;
+    margin-top: 20px; /* Added some margin from the top */
+    flex-direction: column;
+  }
+
+  .header3 {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Vertically align icon and text */
+    justify-content: flex-start; /* Keep items aligned to the left */
+    gap: 20px; /* Add space between the icon and the text */
+}
+
+.header3 i {
+    font-size: 60px;
+    color: rgb(24, 24, 24);
+    margin-left: -345px; /* Reset any unnecessary margin */
+}
+
+h3 {
+    font-size: 25px;
+    color: rgb(24, 24, 24);
+    margin: 0; /* Remove unnecessary margin */
+    padding: 0; /* Ensure no padding */
+}
+
+  /* Notifications */
+  .notifications {
+    text-align: left;
+  }
+
+  /* Appointment Details Box */
+  .appointment-details {
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .appointment-item {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .appointment-item strong {
+    color: #4c365c;
+  }
+
+  .notification-appoint {
+    height: 200px;
+    width: 650px;
+    margin-left: 10px;
+    background-color: #dff7df;
+    border-left: 5px solid #28a745;
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color: #3c763d;
+  }
+
+  .notification-appoint p {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+.calendar-day {
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+
+.calendar-day:hover {
+    background-color: #f0f0f0;
+}
+
+.calendar-day.selected {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #0056b3;
+}
