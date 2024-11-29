@@ -15,7 +15,7 @@ if (!isset($_SESSION['email'])) {
 $email = $_SESSION['email']; // Assuming the user's email is stored in the session
 
 // Query to fetch the appointment history for the logged-in user
-$query = "SELECT duration, treatment, status FROM newappointment 
+$query = "SELECT duration, treatment, status FROM bookappointment 
           WHERE (status = 'Approve' OR status = 'Cancelled') 
           AND email = '$email'"; // Match email directly with the stored email
 

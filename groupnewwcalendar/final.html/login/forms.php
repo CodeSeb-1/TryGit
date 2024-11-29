@@ -39,7 +39,7 @@ if (isset($_POST['appointNow'])) {
     } else {
         // Insert into `bookappointment` table
         $stmt = $con->prepare("INSERT INTO bookappointment 
-            (name, age, treament, duration, dentistname, email, status, date, time, checker) 
+            (name, age, treatment, duration, dentistname, email, status, date, time, checker) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         if ($stmt) {
             $stmt->bind_param(

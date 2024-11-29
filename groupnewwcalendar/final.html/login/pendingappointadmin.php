@@ -9,7 +9,7 @@ if (isset($_POST['status']) && isset($_POST['appointmentid'])) {
     $appointmentid = $_POST['appointmentid']; // Appointment ID to update
 
     // Update query
-    $query = "UPDATE newappointment SET status = ? WHERE appointmentid = ?";
+    $query = "UPDATE bookappointment SET status = ? WHERE bapp_id = ?";
     $stmt = mysqli_prepare($con, $query);
     mysqli_stmt_bind_param($stmt, "si", $status, $appointmentid);  // Bind status and appointment ID
 
@@ -17,13 +17,13 @@ if (isset($_POST['status']) && isset($_POST['appointmentid'])) {
     if (mysqli_stmt_execute($stmt)) {
         header("Location: pendingappointadmin.php");  // Redirect back to reflect changes
         exit();
-    } else {
+    } else 
         echo "Error updating status: " . mysqli_error($con);
     }
 }
 
 // Read - Fetch all pending appointments (CRUD - Read operation)
-$result = mysqli_query($con, "SELECT * FROM newappointment WHERE status = 'Approve'");
+$result = mysqli_query($con, "SELECT * FROM bookappointment WHERE status = 'Pending'");
 ?>
 
 <!DOCTYPE html>
@@ -93,13 +93,13 @@ $result = mysqli_query($con, "SELECT * FROM newappointment WHERE status = 'Appro
                         <!-- Approve button -->
                         <form method="POST" action="">
                             <input type="hidden" name="status" value="Complete">
-                            <input type="hidden" name="appointmentid" value="<?php echo $row['appointmentid']; ?>">
+                            <input type="hidden" name="appointmentid" value="<?php echo $row['bapp_id']; ?>">
                             <button type="submit" class="approve">Approve</button>
                         </form>
                         <!-- Cancel button -->
                         <form method="POST" action="">
                             <input type="hidden" name="status" value="Cancel">
-                            <input type="hidden" name="appointmentid" value="<?php echo $row['appointmentid']; ?>">
+                            <input type="hidden" name="appointmentid" value="<?php echo $row['bapp_id']; ?>">
                             <button type="submit" class="cancel">Cancel</button>
                         </form>
                     </div>

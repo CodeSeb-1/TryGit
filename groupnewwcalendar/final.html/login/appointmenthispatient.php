@@ -19,10 +19,10 @@ $email_query = "SELECT email FROM patient WHERE email = '$email'";
 $email_result = mysqli_query($con, $email_query);
 
 if (mysqli_num_rows($email_result) > 0) {
-    // Query to fetch the appointments for the logged-in user from the 'newappointment' table
-    $query = "SELECT treatment, age, dentistname, duration FROM newappointment 
+    // Query to fetch the appointments for the logged-in user from the 'bookappointment' table
+    $query = "SELECT treatment, age, dentistname, duration FROM bookappointment 
               WHERE (status = 'Approve' OR status = 'Complete') 
-              AND email = '$email'"; // Match email directly with the 'email' field in 'newappointment'
+              AND email = '$email'"; // Match email directly with the 'email' field in 'bookappointment'
     $result = mysqli_query($con, $query);
     
     // Further processing for displaying appointments

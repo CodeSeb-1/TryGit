@@ -3,7 +3,7 @@
 include('connect.php');
 
 // Fetch all appointment history from the database
-$query = "SELECT name, duration FROM newappointment WHERE status = 'Complete'";
+$query = "SELECT name, duration FROM bookappointment WHERE status = 'Complete'";
 $result = mysqli_query($con, $query);
 ?>
 
