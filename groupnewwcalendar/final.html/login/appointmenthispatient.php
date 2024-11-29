@@ -20,8 +20,8 @@ $email_result = mysqli_query($con, $email_query);
 
 if (mysqli_num_rows($email_result) > 0) {
     // Query to fetch the appointments for the logged-in user from the 'bookappointment' table
-    $query = "SELECT treatment, age, dentistname, duration FROM bookappointment 
-              WHERE (status = 'Approve' OR status = 'Complete') 
+    $query = "SELECT treatment, age, dentistname, duration , time , date , status FROM bookappointment 
+              WHERE (status = 'Canceled' OR status = 'Completed') 
               AND email = '$email'"; // Match email directly with the 'email' field in 'bookappointment'
     $result = mysqli_query($con, $query);
     
@@ -92,8 +92,9 @@ if (mysqli_num_rows($email_result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
             ?>
                 <div class="appointment-details">
+                <?php $formattedDate = date('F j, Y', strtotime($row['date'])); ?>
                     <div class="appointment-item">
-                        <p><strong>Date of Appointment:</strong>//ala pa date</p>
+                        <p><strong>Date of Appointment: </strong><?php echo $formattedDate ?> </p>
                     </div>
                     <div class="appointment-item">
                         <p><strong>Type of Treatment:</strong> <?php echo htmlspecialchars($row['treatment']); ?></p>
@@ -108,13 +109,13 @@ if (mysqli_num_rows($email_result) > 0) {
                         <p><strong>Treatment Duration:</strong> <?php echo htmlspecialchars($row['duration']); ?></p>
                     </div>
                     <div class="appointment-item">
-                        <p><strong>Status:</strong> Done</p>
+                        <p><strong>Status:</strong> <?php echo htmlspecialchars($row['status']);?></p>
                     </div>
                 </div>
             <?php 
                 }
             } else {
-                echo "<p>No approved appointments found.</p>";
+                echo "<p>No appointments found.</p>";
             }
             ?>
         </div>

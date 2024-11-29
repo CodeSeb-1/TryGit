@@ -47,30 +47,14 @@ $totalDaysInMonth = cal_days_in_month(CAL_GREGORIAN, $selectedMonth, $selectedYe
 // Calculate available days
 $availableCount = $totalDaysInMonth - $unavailableCount;
 
-// Output results
-echo "Total Days in Month: $totalDaysInMonth<br>";
-echo "Unavailable Days: $unavailableCount<br>";
-echo "Available Days: $availableCount<br>";
-
 // Calculate percentages
 $availablePercentage = $totalDaysInMonth > 0 ? round(($availableCount / $totalDaysInMonth) * 100, 2) : 0;
 $unavailablePercentage = 100 - $availablePercentage;
-
-// Output the percentages
-echo "Available Percentage: $availablePercentage%<br>";
-echo "Unavailable Percentage: $unavailablePercentage%<br>";
 
 // Close the database connection
 $con->close();
 
 ?>
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">

@@ -6,7 +6,7 @@ $selectedMonth = isset($_GET['month']) ? (int)$_GET['month'] : date('m');
 $selectedYear = isset($_GET['year']) ? (int)$_GET['year'] : date('Y');
 
 // Fetch unavailable days count
-$sql = "SELECT date, COUNT(*) as bookappointment FROM booking WHERE MONTH(date) = ? AND YEAR(date) = ? GROUP BY date";
+$sql = "SELECT date, COUNT(*) as checker_count FROM bookappointment WHERE MONTH(date) = ? AND YEAR(date) = ? GROUP BY date";
 $stmt = $con->prepare($sql);
 $stmt->bind_param("ii", $selectedMonth, $selectedYear);
 $stmt->execute();

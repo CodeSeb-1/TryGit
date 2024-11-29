@@ -20,7 +20,7 @@ if (isset($_POST['status']) && isset($_POST['appointmentid'])) {
     } else 
         echo "Error updating status: " . mysqli_error($con);
     }
-}
+
 
 // Read - Fetch all pending appointments (CRUD - Read operation)
 $result = mysqli_query($con, "SELECT * FROM bookappointment WHERE status = 'Pending'");
@@ -81,24 +81,25 @@ $result = mysqli_query($con, "SELECT * FROM bookappointment WHERE status = 'Pend
                     <p>You have received a new notification.</p>
 
                     <div class="details">
+                    <?php $formattedDate = date('F j, Y', strtotime($row['date'])); ?>
                         <p><strong>Name:</strong> <?php echo htmlspecialchars($row['name']); ?></p>
-                        <p><strong>Appointment Date:</strong>//ala pa date</p>
+                        <p><strong>Appointment Date: </strong><?php echo $formattedDate; ?></p>
                         <p><strong>Type of Treatment:</strong> <?php echo htmlspecialchars($row['treatment']); ?></p>
                         <p><strong>Dentist Name:</strong> <?php echo htmlspecialchars($row['dentistname']); ?></p>
-                        <p><strong>Time:</strong> <?php echo htmlspecialchars($row['duration']); ?></p> // duratin muna hanggang wala pa ung sa aclendar
+                        <p><strong>Time:</strong> <?php echo htmlspecialchars($row['time']); ?></p> 
 
                     </div>
 
                     <div class="buttons">
                         <!-- Approve button -->
                         <form method="POST" action="">
-                            <input type="hidden" name="status" value="Complete">
+                            <input type="hidden" name="status" value="Completed">
                             <input type="hidden" name="appointmentid" value="<?php echo $row['bapp_id']; ?>">
-                            <button type="submit" class="approve">Approve</button>
+                            <button type="submit"   class="approve">Approve</button>
                         </form>
                         <!-- Cancel button -->
                         <form method="POST" action="">
-                            <input type="hidden" name="status" value="Cancel">
+                            <input type="hidden" name="status" value="Canceled">
                             <input type="hidden" name="appointmentid" value="<?php echo $row['bapp_id']; ?>">
                             <button type="submit" class="cancel">Cancel</button>
                         </form>

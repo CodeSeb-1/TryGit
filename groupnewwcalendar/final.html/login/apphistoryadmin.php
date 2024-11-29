@@ -3,8 +3,9 @@
 include('connect.php');
 
 // Fetch all appointment history from the database
-$query = "SELECT name, duration FROM bookappointment WHERE status = 'Complete'";
+$query = "SELECT name, time, date, status FROM bookappointment WHERE status IN ('Completed', 'Canceled')";
 $result = mysqli_query($con, $query);
+
 ?>
 
 <!DOCTYPE html>
@@ -56,9 +57,11 @@ $result = mysqli_query($con, $query);
                           <h3>New appointment notice</h3>
                           <p>You have received a new notification.</p>
                           <div class="details">
+                                  <?php $formattedDate = date('F j, Y', strtotime($row['date'])); ?>
                               <p><strong>Name:</strong> <?php echo $row['name']; ?></p>
-                              <p><strong>Date:</strong>//ala pa date</p>
-                              <p><strong>Time:</strong> <?php echo $row['duration']; ?></p> //duration muna gang wala pa
+                              <p><strong>Date: </strong><?php echo $formattedDate; ?></p>
+                              <p><strong>Time:</strong> <?php echo $row['time']; ?></p>
+                              <p><strong>Status:</strong> <?php echo $row['status']; ?></p>
                           </div>
                       </div>
                       <br>

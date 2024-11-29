@@ -15,9 +15,8 @@ if (!isset($_SESSION['email'])) {
 $email = $_SESSION['email']; // Assuming the user's email is stored in the session
 
 // Query to fetch the appointment history for the logged-in user
-$query = "SELECT duration, treatment, status FROM bookappointment 
-          WHERE (status = 'Approve' OR status = 'Cancelled') 
-          AND email = '$email'"; // Match email directly with the stored email
+$query = "SELECT duration, treatment, status, time, date FROM bookappointment 
+          where email = '$email'"; // Match email directly with the stored email
 
 $result = mysqli_query($con, $query);
 ?>
@@ -72,9 +71,11 @@ $result = mysqli_query($con, $query);
         <?php if (mysqli_num_rows($result) > 0): ?>
           <?php while ($row = mysqli_fetch_assoc($result)): ?>
             <div class="notification success">
+            <?php $formattedDate = date('F j, Y', strtotime($row['date'])); ?>
               <p>Successful Appointment</p><br>
-              <p><strong>Date:</strong> //wala padate
-              <p><strong>Time:</strong> <?php echo $row['duration']; ?></p>//duration muna gang ala pa tas dapat makikita nya lang ung mga history nung sarili nya
+              <p><strong>Date:</strong><?php echo $formattedDate;?><br>
+              <p><strong>Time:</strong> <?php echo $row['time']; ?></p>
+              <p><strong>Status:</strong> <?php echo $row['status']; ?></p>
             </div>
           <?php endwhile; ?>
         <?php else: ?>
