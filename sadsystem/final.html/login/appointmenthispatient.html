@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment History</title>
+
+  <link rel="stylesheet" href="profilestyle.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+</head>
+
+<body>
+  <button class="hamburger-menu" onclick="toggleSidebar()">
+    <i class="ri-menu-line"></i>
+  </button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="homepagepatient.html" div class="menu-item">
+      <i class="ri-home-heart-fill"></i>
+      <span>Home</span>
+    </a>
+    <a href="appointmenthispatient.html" div class="menu-item">
+      <i class="ri-history-line"></i>
+      <span>Appointment History</span>
+    </a>
+    <a href="notifpatient.html" div class="menu-item">
+      <i class="ri-notification-fill"></i>
+      <span>Notification</span>
+    </a>
+    <a href="accoutnsettpatient.html" div class="menu-item">
+      <i class="ri-account-circle-fill"></i>
+      <span>Account Settings</span>
+    </a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-container-appointhiss">
+    <div class="notification-box-appoint">
+      <div class="header3">
+        <i class="ri-history-line"></i>
+        <h3>Notification</h3>
+      </div>
+      <div class="notification-appoint">
+
+        <div class="appointment-details">
+          <div id="appointment-date" class="appointment-item">
+            <strong>Date of Appointment:</strong> 2024-11-19
+          </div>
+          <div id="appointment-treatment" class="appointment-item">
+            <strong>Type of Treatment:</strong> Teeth Whitening
+          </div>
+          <div id="appointment-age" class="appointment-item">
+            <strong>Age:</strong> 28
+          </div>
+          <div id="appointment-dentist" class="appointment-item">
+            <strong>Dentist Name:</strong> Dr. Vanessa Nicolas
+          </div>
+          <div id="appointment-duration" class="appointment-item">
+            <strong>Treatment Duration:</strong> 1 hour
+          </div>
+          <div id="appointment-status" class="appointment-item">
+            <strong>Status:</strong> Done
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("visible");
+  }
+</script>
+
+</html>

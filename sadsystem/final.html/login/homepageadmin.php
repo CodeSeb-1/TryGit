@@ -97,6 +97,8 @@ $con->close();
             chart.draw(data, options);
         }
 
+    
+
     </script>
 </head>
 
@@ -225,7 +227,7 @@ $con->close();
                 <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture">
                 <!-- Display the fullname fetched from the session -->
                 <div class="profile-name"><?php echo htmlspecialchars($fullname); ?></div>
-                <a href="editprofpatient.php">
+                <a href="editprofadmin.php">
                     <button class="edit-profile-btn">EDIT</button>
                 </a>
             </div>
@@ -235,18 +237,14 @@ $con->close();
         <div class="graph-container">
             <div class="graph-box">
             <div id="piechart" style="width: 900px; height: 500px;"></div>
-            <p class="graph-description">
-                    Parang dito nakalagay yung graph kung saan makikita yung percentage nung availability pero hindi pa
-                    ito yung kapag pinindot yung sa calendar or pwede na rin din.
-                </p>
             </div>
         </div>
 
         <div class="main-content">
             <div class="navigation-buttons">
-                <a href="appointmenthispatient.php"><button class="nav-btn">HISTORY</button></a>
-                <a href="notifpatient.php"><button class="nav-btn">NOTIFICATION</button></a>
-                <a href="accountsettpatient.php"><button class="nav-btn">SETTINGS</button></a>
+                <a href="apphistoryadmin.php"><button class="nav-btn">HISTORY</button></a>
+                <a href="pendingappointadmin.php"><button class="nav-btn">NOTIFICATION</button></a>
+                <a href="accountsettadmin.php"><button class="nav-btn">SETTINGS</button></a>
             </div>
         </div>
 
@@ -307,9 +305,6 @@ $con->close();
                         <input type="hidden" name="date" id="selectedDateInput">
                         <input type="hidden" name="time" id="selectedTimeInput">
                         <input type="hidden" name="monthName" id="monthNameInput">
-
-                        <!-- Book Appointment Button -->
-                        <button type="submit" name="bookApointment" class="btn" id="bookAppointmentBtn" disabled>Book Appointment</button>
                     </form>
                 </div>
 
@@ -565,14 +560,14 @@ function drawChart(availableCount, unavailableCount) {
 
 
     // Handle time slot selection
-    function selectTime(time) {
+    /*function selectTime(time) {
         document.getElementById('selectedTimeInput').value = time;
         const buttons = document.querySelectorAll('.circle-btn');
         buttons.forEach(button => button.classList.remove('selected'));
         
         const selectedButton = [...buttons].find(button => button.getAttribute('data-time') === time);
         selectedButton.classList.add('selected');
-    }
+    }*/
     </script>
 </body>
 

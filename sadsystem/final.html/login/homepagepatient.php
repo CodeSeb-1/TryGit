@@ -235,10 +235,6 @@ $con->close();
         <div class="graph-container">
             <div class="graph-box">
             <div id="piechart" style="width: 900px; height: 500px;"></div>
-            <p class="graph-description">
-                    Parang dito nakalagay yung graph kung saan makikita yung percentage nung availability pero hindi pa
-                    ito yung kapag pinindot yung sa calendar or pwede na rin din.
-                </p>
             </div>
         </div>
 
@@ -283,7 +279,7 @@ $con->close();
 
                 <!-- Time Selection -->
                 <div class="time-selection-container">
-                    <form id="appointmentForm" method="POST" action="forms.php">
+                    <form id="appointmentForm" method="POST" action="forms.php" onsubmit="return bookAppointment();">
                         <h3>TIME AVAILABILITY</h3>
                         <div class="time-slot-container">
                     <div class="time-slot">
@@ -309,7 +305,8 @@ $con->close();
                         <input type="hidden" name="monthName" id="monthNameInput">
 
                         <!-- Book Appointment Button -->
-                        <button type="submit" name="bookApointment" class="btn" id="bookAppointmentBtn" disabled>Book Appointment</button>
+                        <button type="submit" name="bookApointment" class="btn" id="bookAppointmentBtn" disabled onclick="bookAppointment()">Book Appointment</button>
+
                     </form>
                 </div>
 
@@ -565,7 +562,7 @@ function drawChart(availableCount, unavailableCount) {
 
 
     // Handle time slot selection
-    function selectTime(time) {
+        function selectTime(time) {
         document.getElementById('selectedTimeInput').value = time;
         const buttons = document.querySelectorAll('.circle-btn');
         buttons.forEach(button => button.classList.remove('selected'));
@@ -573,6 +570,24 @@ function drawChart(availableCount, unavailableCount) {
         const selectedButton = [...buttons].find(button => button.getAttribute('data-time') === time);
         selectedButton.classList.add('selected');
     }
+    function bookAppointment() {
+    const selectedDate = document.getElementById('selectedDateInput').value;
+    const selectedTime = document.getElementById('selectedTimeInput').value;
+
+    if (!selectedDate) {
+        alert("Please select a date.");
+        return false; // Prevent form submission
+    }
+
+    if (!selectedTime) {
+        alert("Please select a time.");
+        return false; // Prevent form submission
+    }
+
+    // If both date and time are selected, allow form submission
+    console.log(`Booking appointment for ${selectedDate} at ${selectedTime}`);
+    return true; // Allow form submission
+}
     </script>
 </body>
 

@@ -1,0 +1,128 @@
+        /* Existing Calendar and Button Styles */
+        .calendar-container {
+            margin-top: 10px;
+            text-align: center;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin: 20px auto;
+        }
+
+        .calendar-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .prev-month, .next-month {
+            font-size: 24px;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            color: #3a3b3a;
+            padding: 5px;
+        }
+
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .calendar-table th, .calendar-table td {
+            width: 10%;
+            height: 10px;
+            text-align: center;
+            border: 1px solid #dddddd;
+            cursor: pointer;
+        }
+
+        .calendar-day {
+            background-color: rgb(63, 60, 63);
+        }
+
+        .calendar-day:hover {
+            background-color: #f0f0f0;
+        }
+
+        .calendar-day.selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .calendar-table th {
+            background-color: #f2f2f2;
+        }
+
+        .calendar-table td {
+            font-size: 12px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .calendar-container h2 {
+            font-size: 24px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #3a3b3a;
+        }
+
+        /* Appointment Button Container */
+        .appointment-button-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        /* Time Selection Styles */
+        .time-selection-container {
+            margin-top: 50px;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        #timeSelect {
+            padding: 8px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        #confirmTimeBtn {
+            padding: 8px 16px;
+            font-size: 14px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #confirmTimeBtn:hover {
+            background-color: #218838;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }

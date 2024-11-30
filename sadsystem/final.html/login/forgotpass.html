@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="forgotpass.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="left-side"></div>
+
+        <div class="right-side">
+            <div class="logo">
+                <img src="logo.png" alt="Vanessa Nicolas Dental Clinic Logo">
+            </div>
+
+            <h2>Create a New Password</h2>
+            <p class="subtitle">Your new password must not be the same as your previous one.</p>
+
+            <form action="sign-in.html" method="post">
+                <label for="email">Current Email</label>
+                <input type="email" id="email" placeholder="Enter your email address" required>
+
+                <label for="new-password">New Password</label>
+                <input type="password" id="new-password" placeholder="Enter new password" required>
+                <p class="password-note">Choose a password with at least 8 characters.</p>
+
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" placeholder="Re-enter new password" required>
+
+                <button type="submit">Submit</button>
+                
+            </form>
+        </div>
+    </div>
+</body>
+</html>

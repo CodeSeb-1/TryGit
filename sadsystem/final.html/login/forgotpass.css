@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=Roboto+Slab:wght@700&family=Lato:wght@400&family=Montserrat:wght@600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; 
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #D8BADE 22%, #987FA6 49%, #614D76 90%);
+    padding: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.left-side {
+    flex: 1;
+    background-image: url('img2.jpg');
+    background-size: cover;
+    background-position: center;
+    display: none;
+}
+
+.right-side {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.right-side .logo {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.right-side .logo img {
+    max-width: 120px;
+}
+
+.right-side h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #5d3c6d;
+    margin-top: 3rem; 
+    margin-bottom: 0.5rem;
+    font-family: 'Roboto Slab', serif; 
+}
+
+.right-side .subtitle {
+    text-align: center;
+    color: #555;
+    margin-bottom: 1rem;
+    font-family: 'Roboto', sans-serif; 
+}
+
+.right-side form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem; 
+}
+
+.right-side label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.3rem;
+    font-family: 'Roboto', sans-serif; 
+}
+
+.right-side input[type="email"],
+.right-side input[type="password"] {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    width: 100%;
+    font-family: 'Roboto', sans-serif; 
+}
+
+.right-side .password-note {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: -0.5rem; 
+    margin-bottom: 1rem;
+    font-family: 'Roboto', sans-serif; 
+}
+
+.right-side button {
+    background-color: #9c6adf;
+    color: #fff;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1.5rem; 
+    font-family: 'Montserrat', sans-serif; 
+}
+
+@media (min-width: 600px) {
+    .container {
+        flex-direction: row;
+    }
+    .left-side {
+        display: block;
+    }
+}
+
+@media (max-width: 599px) {
+    .container {
+        flex-direction: column;
+    }
+    .right-side {
+        padding: 1.5rem;
+    }
+    .right-side .logo img {
+        max-width: 100px;
+    }
+    .right-side h2 {
+        font-size: 1.5rem;
+        margin-top: 3rem;
+    }
+}

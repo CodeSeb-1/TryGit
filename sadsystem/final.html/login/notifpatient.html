@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification History</title>
+
+  <link rel="stylesheet" href="profilestyle.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+</head>
+
+<body>
+  <button class="hamburger-menu" onclick="toggleSidebar()">
+    <i class="ri-menu-line"></i>
+  </button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="homepagepatient.html" div class="menu-item">
+      <i class="ri-home-heart-fill"></i>
+      <span>Home</span>
+    </a>
+    <a href="appointmenthispatient.html" div class="menu-item">
+      <i class="ri-history-line"></i>
+      <span>Appointment History</span>
+    </a>
+    <a href="notificationhis.html" div class="menu-item">
+      <i class="ri-notification-fill"></i>
+      <span>Notification History</span>
+    </a>
+    <a href="accoutnsettpatient.html" div class="menu-item">
+      <i class="ri-account-circle-fill"></i>
+      <span>Account Settings</span>
+    </a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-container-notificationhis">
+    <div class="notification-box">
+      <div class="header2">
+        <i class="ri-notification-fill"></i>
+        <h2>Notification History</h2>
+      </div>
+      <div class="notifications">
+        <div class="notification success">
+          <p>Successful Appointment</p><br>
+          <p>Date:</p><br>
+          <p>time:</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("visible");
+  }
+</script>
+
+</html>
